@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+    font-family: Arial, sans-serif;
+    margin: 0; /* Ensure no margin */
+    padding: 0; /* Ensure no padding */
+}
+
+.phone-frame {
+    width: 375px; /* iPhone 8 width */
+    height: 667px; /* iPhone 8 height */
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.splash {
+    background: linear-gradient(180deg, #8B4513 0%, #53B175 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Added to indicate hover interaction */
+}
+
+.splash img {
+    width: 200px;
+    height: auto;
+}
+
+.onboarding {
+    background-image: url('on-board-background.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px 20px;
+    color: white;
+    text-align: center;
+    height: 100%; /* Ensure full screen */
+    width: 100%; /* Ensure full width */
+}
+
+.onboarding::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+.onboarding-content {
+    position: relative;
+    z-index: 1;
+}
+
+.onboarding img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.onboarding h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.onboarding p {
+    font-size: 16px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.get-started-btn {
+    background: #53B175;
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 18px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.get-started-btn:hover {
+    background: #45945f;
+}
+
+.status-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 44px;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    z-index: 2;
+}
+
+.time {
+    font-weight: bold;
+}
+
+.status-icons {
+    display: flex;
+    gap: 5px;
+}
+
+.status-icons span {
+    width: 15px;
+    height: 15px;
+}
+
+.number-input {
+    background: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.number-input-content {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.number-input h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #181725;
+    margin: 24px 0;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E2E2E2;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+}
+
+.country-prefix {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-right: 12px;
+}
+
+.country-prefix span {
+    color: #181725;
+    font-weight: 500;
+}
+
+#phone-number {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    flex: 1;
+}
+
+.next-button {
+    position: absolute;
+    right: 24px;
+    top: 160px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #53B175;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.keypad {
+    margin-top: auto;
+    padding-bottom: 24px;
+}
+
+.keypad-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.key {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #181725;
+    cursor: pointer;
+    position: relative;
+}
+
+.key span {
+    font-size: 12px;
+    color: #7C7C7C;
+    margin-top: 4px;
+}
+
+.key.special {
+    font-size: 16px;
+}
+
+.key:active {
+    background: #F2F2F2;
+    border-radius: 40px;
+}
